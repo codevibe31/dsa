@@ -187,7 +187,6 @@ void insert_at_end(int data)
 
     if(new_node != NULL)
     {
-        //if list is empty
         if(head == NULL)
         {
             head = new_node;
