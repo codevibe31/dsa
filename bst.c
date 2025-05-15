@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// structure of a node
 struct node
 {
     int data;
@@ -9,10 +8,8 @@ struct node
     struct node *right;
 };
 
-// globally initialized root pointer
 struct node *root = NULL;
 
-// function prototyping
 struct node *create_node(int);
 void insert(int);
 struct node *delete (struct node *, int);
