@@ -51,7 +51,7 @@ int check(char exp[] )
                                 }
                         }
         }
-        if(top==-1) /*stack empty*/
+        if(top==-1) 
         {
                 printf("Balanced Parentheses\n");
                 return 1;
@@ -61,7 +61,7 @@ int check(char exp[] )
                 printf("Left parentheses more than right parentheses\n");
                 return 0;
         }
-}/*End of main()*/
+}
 int match(char a,char b)
 {
         if(a=='[' && b==']')
@@ -71,7 +71,7 @@ int match(char a,char b)
         if(a=='(' && b==')')
                 return 1;
         return 0;
-}/*End of match()*/
+}
 
 void push(char item)
 {
@@ -82,7 +82,7 @@ void push(char item)
         }
         top=top+1;
         stack[top]=item;
-}/*End of push()*/
+}
 
 char pop()
 {
@@ -92,4 +92,4 @@ char pop()
                 exit(1);
         }
         return(stack[top--]);
-}/*End of pop()*/
+}
