@@ -115,7 +115,6 @@ int main()
     return 0;
 }
 
-// creates a new node
 struct node *create_node(int data)
 {
     struct node *new_node = (struct node *)malloc(sizeof(struct node));
@@ -133,14 +132,12 @@ struct node *create_node(int data)
     return new_node;
 }
 
-// inserts the data in the BST
 void insert(int data)
 {
     struct node *new_node = create_node(data);
 
     if (new_node != NULL)
     {
-        // if the root is empty then make a new node as the root node
         if (root == NULL)
         {
             root = new_node;
@@ -151,7 +148,6 @@ void insert(int data)
         struct node *temp = root;
         struct node *prev = NULL;
 
-        // traverse through the BST to get the correct position for insertion
         while (temp != NULL)
         {
             prev = temp;
@@ -165,7 +161,6 @@ void insert(int data)
             }
         }
 
-        // found the last node where the new node should insert
         if (data > prev->data)
         {
             prev->right = new_node;
@@ -179,7 +174,6 @@ void insert(int data)
     }
 }
 
-// deletes the given key node from the BST
 struct node *delete (struct node *root, int key)
 {
     if (root == NULL)
@@ -216,7 +210,6 @@ struct node *delete (struct node *root, int key)
 
 }
 
-// search the given key node in BST
 int search(int key)
 {
     struct node *temp = root;
@@ -239,7 +232,6 @@ int search(int key)
     return 0;
 }
 
-// finds the node with the smallest value in BST
 struct node *smallest_node(struct node *root)
 {
     struct node *curr = root;
@@ -250,7 +242,6 @@ struct node *smallest_node(struct node *root)
     return curr;
 }
 
-// finds the node with the largest value in BST
 struct node *largest_node(struct node *root)
 {
     struct node *curr = root;
@@ -261,7 +252,6 @@ struct node *largest_node(struct node *root)
     return curr;
 }
 
-// inorder traversal of the BST
 void inorder(struct node *root)
 {
     if (root == NULL)
@@ -273,7 +263,6 @@ void inorder(struct node *root)
     inorder(root->right);
 }
 
-// preorder traversal of the BST
 void preorder(struct node *root)
 {
     if (root == NULL)
@@ -285,7 +274,6 @@ void preorder(struct node *root)
     preorder(root->right);
 }
 
-// postorder travsersal of the BST
 void postorder(struct node *root)
 {
     if (root == NULL)
@@ -297,7 +285,6 @@ void postorder(struct node *root)
     printf("%d ", root->data);
 }
 
-// getting data from the user
 int get_data()
 {
     int data;
