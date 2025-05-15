@@ -3,17 +3,17 @@
 #include<stdio.h>
 #include<malloc.h>
 
-//type declaration of a node
+
 struct node
 {
     int data;
     struct node* next;
 };
 
-//global head pointer
+
 struct node* head = NULL;
 
-//prototyping of the functions
+
 struct node* create_node(int);
 void insert_at_beginning(int);
 void insert_at_end(int);
@@ -136,25 +136,20 @@ int main()
     return 0;
 }
 
-/*
-* Function will show an empty list message
-*/
+
+
 void empty_message()
 {
     printf("\n\tList is Empty!\n");
 }
 
-/*
-* Function is used to show the memory allocation failure
-*/
+
 void memory_message()
 {
     printf("\nMemory can't be allocated\n");
 }
 
-/*
-* Creates a new node and returns the address of that node
-*/
+
 struct node* create_node(int data)
 {
     struct node* new_node = (struct node*) malloc(sizeof(struct node));
@@ -170,9 +165,7 @@ struct node* create_node(int data)
     return new_node;
 }
 
-/*
-* Insert the new node at the beginning of the list
-*/
+
 void insert_at_beginning(int data)
 {
     struct node* new_node = NULL;
@@ -186,9 +179,7 @@ void insert_at_beginning(int data)
     }
 }
 
-/*
-* Insert the new node at the end of the list
-*/
+
 void insert_at_end(int data)
 {
     struct node* new_node = NULL;
@@ -205,13 +196,13 @@ void insert_at_end(int data)
         {
             struct node* last = head;
 
-            //getting the last node
+           
             while(last->next != NULL)
             {
                 last = last->next;
             }
 
-            //link the last node next pointer to the new node
+          
             last->next = new_node;
         }
         printf("\n* Node with data %d was Inserted\n", data);
@@ -219,23 +210,20 @@ void insert_at_end(int data)
 }
 
 
-/*
-* Insert the new node at the given position
-*/
+
 void insert_at_position(int data, int pos)
 {
-    //calculate the size of the list
+    
     int list_size = 0;
     list_size = size_of_list();
 
-    //if the list is empty and the position is greater than the 1
+   
     if(head == NULL && (pos <= 0 || pos > 1))
     {
         printf("\nInvalid position to insert a node\n");
         return;
     }
 
-    // if the list is not empty and the position is out of range
     if(head != NULL && (pos <= 0 || pos > list_size))
     {
         printf("\nInvalid position to insert a node\n");
@@ -249,7 +237,7 @@ void insert_at_position(int data, int pos)
     {
         struct node* temp = head;
 
-        //getting the position-1 node
+       
         int count = 1;
         while(count < pos-1)
         {
@@ -257,7 +245,6 @@ void insert_at_position(int data, int pos)
             count += 1;
         }
 
-        //if the position is 1 then insertion at the beginning
         if(pos == 1)
         {
             new_node->next = head;
@@ -273,9 +260,7 @@ void insert_at_position(int data, int pos)
 }
 
 
-/*
-* Delete the node from the beginning of the list
-*/
+
 void delete_at_beginning()
 {
     if(head == NULL)
@@ -287,7 +272,6 @@ void delete_at_beginning()
     struct node* temp = head;
     int data = head->data;
 
-    //move head pointer to the next node to the head
     head = head->next;
     free(temp);
 
@@ -295,9 +279,7 @@ void delete_at_beginning()
 }
 
 
-/*
-* Delete the node from the ending of the list
-*/
+
 void delete_at_end()
 {
     if(head == NULL)
@@ -310,7 +292,6 @@ void delete_at_end()
     struct node* prev = NULL;
     int data;
 
-    //reaching the last node
     while(temp->next != NULL)
     {
         prev = temp;
@@ -319,7 +300,7 @@ void delete_at_end()
 
     data = temp->data;
 
-    //if there is only one node
+   
     if(temp == head)
     {
         free(temp);
@@ -335,16 +316,14 @@ void delete_at_end()
 }
 
 
-/*
-* Deleting the node from the given position
-*/
+
 void delete_at_position(int pos)
 {
-    //calculate the size of the list
+  
     int list_size = 0;
     list_size = size_of_list();
 
-    // if the position is out of range
+   
     if(pos <= 0 || pos > list_size)
     {
         printf("\nInvalid position to delete a node\n");
@@ -379,9 +358,7 @@ void delete_at_position(int pos)
 
 }
 
-/*
-* Search the node with given data in the list
-*/
+
 void search_data(int data)
 {
     int position = 0;
@@ -410,16 +387,14 @@ void search_data(int data)
     }
 }
 
-/*
-* Update the node with the given new data
-*/
+
 void update_node_data(int new_data, int pos)
 {
-    //calculate the size of the list
+    
     int list_size = 0;
     list_size = size_of_list();
 
-    // if the position is out of range
+    
     if(pos <= 0 || pos > list_size)
     {
         printf("\nInvalid position to update a node\n");
@@ -439,9 +414,7 @@ void update_node_data(int new_data, int pos)
     printf("\nUpdated node data is %d\n", new_data);
 }
 
-/*
-* Prints the data from the start of the list
-*/
+
 void print_from_beginning()
 {
     if(head == NULL)
@@ -459,9 +432,7 @@ void print_from_beginning()
     }
 }
 
-/*
-* Prints the list from the end of the list
-*/
+
 void print_from_end(struct node* head)
 {
     if(head == NULL)
@@ -472,9 +443,6 @@ void print_from_end(struct node* head)
     printf("%d  ", head->data);
 }
 
-/*
-* Returns the size of the list
-*/
 int size_of_list()
 {
     struct node* temp = head;
@@ -488,9 +456,7 @@ int size_of_list()
     return count;
 }
 
-/*
-* Getting node data from the user
-*/
+
 int getData()
 {
     int data;
@@ -500,9 +466,7 @@ int getData()
     return data;
 }
 
-/*
-* Getting the position of the node from the user
-*/
+
 int getPosition()
 {
     int pos;
