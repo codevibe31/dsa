@@ -10,7 +10,6 @@ struct node
 
 struct node* head = NULL;
 
-/* functions prototyping */
 void insert_at_beginning(int);
 void insert_at_end(int);
 void insert_at_position(int, int);
@@ -23,7 +22,6 @@ void search_data(int);
 void update_node_data(int, int);
 void list_sort();
 
-/* helper functions */
 struct node* create_node(int);
 int size_of_list();
 int getData();
@@ -143,25 +141,21 @@ int main()
     return 0;
 }
 
-/* prints the message when the memory was not allocated */
 void memory_error_message()
 {
     printf("\nMemory was not allocated!\n");
 }
 
-/* prints the message when the position is not valid for operation*/
 void invalid_position_message()
 {
     printf("\nInvalid position!\n");
 }
 
-/* prints the message when the linked list is empty */
 void empty_list_message()
 {
     printf("\nList is Empty!\n");
 }
 
-/* creates a new node dynamically */
 struct node* create_node(int data)
 {
     struct node* new_node = (struct node*) malloc(sizeof(struct node));
@@ -178,7 +172,6 @@ struct node* create_node(int data)
     }
 }
 
-/* inserts a new node at beginning of the list */
 void insert_at_beginning(int data)
 {
     struct node* new_node = create_node(data);
@@ -201,7 +194,6 @@ void insert_at_beginning(int data)
     printf("\n* Node with data %d was inserted \n", data);
 }
 
-/* inserts a new node at the end of the list */
 void insert_at_end(int data)
 {
     struct node* new_node = create_node(data);
@@ -218,7 +210,6 @@ void insert_at_end(int data)
     else
     {
         struct node* temp = head;
-        //traverse to the last node
         while (temp->next != NULL)
         {
             temp = temp = temp->next;
@@ -229,7 +220,6 @@ void insert_at_end(int data)
     printf("\n* Node with data %d was inserted \n", data);
 }
 
-/* inserts a new node at the given position */
 void insert_at_position(int data, int pos)
 {
     struct node* new_node = create_node(data);
@@ -261,7 +251,6 @@ void insert_at_position(int data, int pos)
         struct node* temp = head;
         int count = 1;
 
-        //traverse to the before given position
         while (++count < pos)
         {
             temp = temp->next;
@@ -276,7 +265,6 @@ void insert_at_position(int data, int pos)
     printf("\n* Node with data %d was inserted \n", data);
 }
 
-/* deletes a node from the beginning of the list */
 void delete_from_beginning()
 {
     if (head == NULL)
@@ -288,13 +276,11 @@ void delete_from_beginning()
     head = head->next;
     int data = temp->data;
 
-    //free the memory from the heap
     free(temp);
 
     printf("\n* Node with data %d was deleted \n", data);
 }
 
-/* deletes a node from the end of the list */
 void delete_from_end()
 {
 
@@ -325,7 +311,6 @@ void delete_from_end()
     printf("\n* Node with data %d was deleted \n", data);
 }
 
-/* deletes a node from the given position */
 void delete_from_position(int pos)
 {
 
@@ -359,25 +344,20 @@ void delete_from_position(int pos)
             temp = temp->next;
         }
 
-        //update previous node
         temp->prev->next = temp->next;
 
-        // if deleting the last node then just update the previous node
         if (pos != size)
         {
-            //update next node
             temp->next->prev = temp->prev;
         }
         data = temp->data;
 
-        //free memory
         free(temp);
 
         printf("\n* Node with data %d was deleted \n", data);
     }
 }
 
-/* prints the data of nodes from the beginning of the list */
 void print_from_beginning()
 {
     struct node* temp = head;
@@ -390,7 +370,6 @@ void print_from_beginning()
     printf("NULL\n");
 }
 
-/* prints the data of nodes from the end of the list */
 void print_from_end(struct node* head)
 {
     if (head == NULL)
@@ -402,7 +381,6 @@ void print_from_end(struct node* head)
     printf("%d  ", head->data);
 }
 
-/* search a data node with the given value */
 void search_data(int data)
 {
     struct node* temp = head;
@@ -430,7 +408,6 @@ void search_data(int data)
     }
 }
 
-/* updates a node from the given position */
 void update_node_data(int data, int pos)
 {
     if (head == NULL)
@@ -460,7 +437,6 @@ void update_node_data(int data, int pos)
     printf("\nNode Number %d was Updated!\n", pos);
 }
 
-/* sort the linked list data using insertion sort */
 void list_sort()
 {
     if (head == NULL)
@@ -489,7 +465,6 @@ void list_sort()
     printf("\nList was sorted!\n");
 }
 
-/* getting node data from the user */
 int getData()
 {
     int data;
@@ -499,7 +474,6 @@ int getData()
     return data;
 }
 
-/* getting node position from the user */
 int getPosition()
 {
     int position;
@@ -509,7 +483,6 @@ int getPosition()
     return position;
 }
 
-/* finding the size of the list */
 int size_of_list()
 {
     struct node* temp = head;
