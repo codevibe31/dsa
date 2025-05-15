@@ -79,19 +79,16 @@ void main()
     }
 }
 
-/* Create empty stack */
 void create()
 {
     top = NULL;
 }
 
-/* Count stack elements */
 void stack_count()
 {
     printf("\n No. of elements in stack : %d", count);
 }
 
-/* Push data into stack */
 void push(int data)
 {
     if (top == NULL)
@@ -110,7 +107,6 @@ void push(int data)
     count++;
 }
 
-/* Display stack elements */
 void display()
 {
     top1 = top;
@@ -128,7 +124,6 @@ void display()
     }
  }
 
-/* Pop Operation on stack */
 void pop()
 {
     top1 = top;
@@ -146,13 +141,11 @@ void pop()
     count--;
 }
 
-/* Return top element */
 int topelement()
 {
     return(top->info);
 }
 
-/* Check if stack is empty or not */
 void empty()
 {
     if (top == NULL)
@@ -161,7 +154,6 @@ void empty()
         printf("\n Stack is not empty with %d elements", count);
 }
 
-/* Destroy entire stack */
 void destroy()
 {
     top1 = top;
